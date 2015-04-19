@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="t0U-d2-cPQ">
+            <objects>
+                <viewController storyboardIdentifier="BPWebViewController" id="mP1-3O-dCt" customClass="BPWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zyo-Da-fog"/>
+                        <viewControllerLayoutGuide type="bottom" id="3sf-XG-Z4a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ahk-Nb-Go9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1RP-C5-Nv9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PEA-Cg-Xh5" id="9gx-Ku-d7a"/>
+                                </connections>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3N-qd-97x" customClass="NJKWebViewProgressView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Xuk-ie-Y8V"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1RP-C5-Nv9" firstAttribute="leading" secondItem="Ahk-Nb-Go9" secondAttribute="leading" id="1BS-go-pcY"/>
+                            <constraint firstItem="1RP-C5-Nv9" firstAttribute="top" secondItem="Ahk-Nb-Go9" secondAttribute="top" id="4LD-iU-2BC"/>
+                            <constraint firstItem="r3N-qd-97x" firstAttribute="top" secondItem="zyo-Da-fog" secondAttribute="bottom" id="C3M-W0-6Me"/>
+                            <constraint firstAttribute="trailing" secondItem="1RP-C5-Nv9" secondAttribute="trailing" id="cvR-Nk-2j4"/>
+                            <constraint firstItem="3sf-XG-Z4a" firstAttribute="top" secondItem="1RP-C5-Nv9" secondAttribute="bottom" id="jGM-St-NNf"/>
+                            <constraint firstItem="r3N-qd-97x" firstAttribute="leading" secondItem="Ahk-Nb-Go9" secondAttribute="leading" id="lSN-UP-9dE"/>
+                            <constraint firstAttribute="trailing" secondItem="r3N-qd-97x" secondAttribute="trailing" id="xLt-DP-Qa4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="QxN-1P-2Th">
+                        <barButtonItem key="leftBarButtonItem" image="barbuttonicon_back" id="thY-Dx-5Qf">
+                            <connections>
+                                <action selector="doBack:" destination="mP1-3O-dCt" id="i1K-dK-QNH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="barbuttonicon_more" id="rWN-79-Whi">
+                            <connections>
+                                <action selector="doMore:" destination="mP1-3O-dCt" id="eDX-pZ-n48"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="backItem" destination="thY-Dx-5Qf" id="M8z-09-v00"/>
+                        <outlet property="closeItem" destination="r03-FU-7VO" id="ucI-0g-ve2"/>
+                        <outlet property="moreItem" destination="rWN-79-Whi" id="Zhn-gf-JR4"/>
+                        <outlet property="progressProxy" destination="PEA-Cg-Xh5" id="2Zx-z0-R87"/>
+                        <outlet property="progressView" destination="r3N-qd-97x" id="BOr-8w-slm"/>
+                        <outlet property="webView" destination="1RP-C5-Nv9" id="cGF-Pg-xck"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWx-Cs-Em9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="PEA-Cg-Xh5" customClass="NJKWebViewProgress">
+                    <connections>
+                        <outlet property="progressDelegate" destination="mP1-3O-dCt" id="ubm-or-nCd"/>
+                        <outlet property="webViewProxyDelegate" destination="mP1-3O-dCt" id="fFF-5I-Bf0"/>
+                    </connections>
+                </customObject>
+                <barButtonItem title="关闭" id="r03-FU-7VO">
+                    <connections>
+                        <action selector="doClose:" destination="mP1-3O-dCt" id="SGF-Hd-Pgz"/>
+                    </connections>
+                </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="775" y="318"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bqw-pW-eLz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XyI-1G-tAy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gog-gX-6Ue">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mP1-3O-dCt" kind="relationship" relationship="rootViewController" id="CGX-0X-722"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VZt-hi-q7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="257" y="318"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="barbuttonicon_back" width="15" height="30"/>
+        <image name="barbuttonicon_more" width="30" height="30"/>
+    </resources>
+</document>
